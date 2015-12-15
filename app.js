@@ -26,15 +26,13 @@ function postToTrello(listId, command, text, user_name, cb) {
 	trello.post('/1/lists/' + listId + '/cards', card_data, cb);
 }
 
-var list_id = [];
-
 function list_check() {
   if (card_data[2] == blog) {
-      list_id = '5670696fa98d9db94c818c5a';
+      var list_id = '5670696fa98d9db94c818c5a';
       //throw new console.log('list id set to 5670696fa98d9db94c818c5a');
     }
   else if (card_data[2] == done) {
-      list_id = '5670696d37e05b451fe05482';
+      var list_id = '5670696d37e05b451fe05482';
       //throw new console.log('list id set to 5670696d37e05b451fe05482');
     }
 }
