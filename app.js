@@ -17,15 +17,27 @@ function postToTrello(listId, command, text, user_name, cb) {
 
 	var card_data = {
 		'name' : name_and_desc.shift() + ' (@' + user_name + ')',
-		'desc' : name_and_desc.shift()
+		'desc' : name_and_desc.shift(),
+    'list_name' : name_and_desc.shift()
 	};
 
 	trello.post('/1/lists/' + listId + '/cards', card_data, cb);
 }
 
+var list_id = null;
+
+function list_check() {
+  if (list_name == blog) {
+      var list_id = '5670696fa98d9db94c818c5a';
+    }
+  else {
+      alert('what?');
+  }
+}
+
 app.post('/*', function(req, res, next) {
   //var listId = req.params[0];
-  var listId = '541adcd995f2f27de785d432';
+  var listId = list_id;
   var command = req.body.command,
   text = req.body.text,
   user_name = req.body.user_name;
