@@ -20,11 +20,21 @@ function postToTrello(listId, command, text, user_name, cb) {
 		'desc' : name_and_desc.shift()
 	};
 
-	trello.post('/1/lists/' + listId + '/cards', card_data, cb);
+  var list_and_card = text.split('|');
+
+  var list_card = {
+    'list_id' : list_and_card.shift(),
+    'card_name' : list_and_card.shift()
+  }
+
+	//trello.post('/1/lists/' + listId + '/cards', card_data, cb);
+  trello.post('/1/lists/' + list_card, card_data, cb);
+
 }
 
 app.post('/*', function(req, res, next) {
-  var listId = req.params[0];
+  //var listId = req.params[0];
+  var listId = list_card.list_id;
   var command = req.body.command,
   text = req.body.text,
   user_name = req.body.user_name;
