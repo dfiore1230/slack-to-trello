@@ -28,7 +28,8 @@ var list_id = null;
 
 function list_check() {
   if (list_name == blog) {
-      var list_id = '5670696fa98d9db94c818c5a';
+      var list_id = 5670696fa98d9db94c818c5a;
+      alert('list id set to 5670696fa98d9db94c818c5a');
     }
   else {
       alert('what?');
