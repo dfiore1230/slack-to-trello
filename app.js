@@ -20,7 +20,14 @@ function postToTrello(listId, command, text, user_name, cb) {
 		'desc' : name_and_desc.shift()
 	};
 
-	trello.post('/1/lists/' + listId + '/cards', card_data, cb);
+  var list_card = {
+    'list_id' : list_card.shift(),
+    'card_name' : '/cards'
+  }
+
+	//trello.post('/1/lists/' + listId + '/cards', card_data, cb);
+  trello.post('/1/lists/' + list_card, card_data, cb);
+
 }
 
 app.post('/*', function(req, res, next) {
