@@ -24,7 +24,7 @@ function postToTrello(listId, command, text, user_name, cb) {
 	trello.post('/1/lists/' + listId + '/cards', card_data, cb);
 }
 
-var list_id = null;
+var list_id = 'null';
 
 function list_check() {
   if (list_name == blog) {
