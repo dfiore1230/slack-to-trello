@@ -5,7 +5,6 @@ var trello = new Trello(process.env.TRELLO_KEY, process.env.TRELLO_TOKEN);
 
 var app = express();
 var port = process.env.PORT || 3000;
-var card_data = [];
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
