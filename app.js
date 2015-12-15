@@ -27,11 +27,11 @@ function postToTrello(listId, command, text, user_name, cb) {
 var list_id = 'null';
 
 function list_check() {
-  if (list_name == blog) {
+  if (list_name = blog) {
       var list_id = '5670696fa98d9db94c818c5a';
       alert('list id set to 5670696fa98d9db94c818c5a');
     }
-  else if (list_name == done) {
+  else if (list_name = done) {
       var list_id = '5670696d37e05b451fe05482';
       alert('list id set to 5670696d37e05b451fe05482');
     }
