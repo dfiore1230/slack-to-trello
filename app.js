@@ -20,9 +20,11 @@ function postToTrello(listId, command, text, user_name, cb) {
 		'desc' : name_and_desc.shift()
 	};
 
+  var list_and_card = text.split('|');
+
   var list_card = {
-    'list_id' : list_card.shift(),
-    'card_name' : '/cards'
+    'list_id' : list_and_card.shift(),
+    'card_name' : list_and_card.shift()
   }
 
 	//trello.post('/1/lists/' + listId + '/cards', card_data, cb);
