@@ -26,7 +26,7 @@ function postToTrello(listId, command, text, user_name, cb) {
 	trello.post('/1/lists/' + listId + '/cards', card_data, cb);
 }
 
-//console.log(card_data[2]);
+console.log( card_data[2], "Logged!");
 
 // Set Fallback list_id
 var list_id = '5670696fa98d9db94c818c5a';
