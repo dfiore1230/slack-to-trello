@@ -23,7 +23,7 @@ function postToTrello(listId, command, text, user_name, cb) {
     'list_name' : name_and_desc.shift()
 	};
 
-  throw new Error('List name is ' + list_name);
+  throw new Error('List name is ' + card_data[2]);
 
 	trello.post('/1/lists/' + listId + '/cards', card_data, cb);
 }
