@@ -42,12 +42,12 @@ function postToTrello(listId, command, text, user_name, cb) {
 
 app.post('/*', function(req, res, next) {
   //var listId = req.params[0];
-  var listId = list_id;
+  //var listId = list_id;
   var command = req.body.command,
   text = req.body.text,
   user_name = req.body.user_name;
 
-  postToTrello(listId, command, text, user_name, function(err, data) {
+  postToTrello(list_id, command, text, user_name, function(err, data) {
     if (err) throw err;
     console.log(data);
 
