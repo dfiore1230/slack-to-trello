@@ -28,16 +28,16 @@ function postToTrello(listId, command, text, user_name, cb) {
 
   if (card_data.list_name == undefined) {
     // If none set, default to blog
-    listId = '5670696fa98d9db94c818c5a';
+    listName = '5670696fa98d9db94c818c5a';
   }
   else if (card_data.list_name == "blog") {
-    listId = '5670696fa98d9db94c818c5a';
+    listName = '5670696fa98d9db94c818c5a';
   }
   else if (card_data.list_name == "done") {
-    listId = '5670696d37e05b451fe05482';
+    listName = '5670696d37e05b451fe05482';
   }
 
-  throw new Error('ListId is ' + listId);
+  throw new Error('List name is ' + listName);
 
 	trello.post('/1/lists/' + listId + '/cards', card_data, cb);
 }
