@@ -28,13 +28,13 @@ function postToTrello(listId, command, text, user_name, cb) {
 
   if (card_data.list_name == undefined) {
     // If none set, default to blog
-    list_id = '5670696fa98d9db94c818c5a';
+    listId = '5670696fa98d9db94c818c5a';
   }
   else if (card_data.list_name == "blog") {
-    list_id = '5670696fa98d9db94c818c5a';
+    listId = '5670696fa98d9db94c818c5a';
   }
   else if (card_data.list_name == "done") {
-    list_id = '5670696d37e05b451fe05482';
+    listId = '5670696d37e05b451fe05482';
   }
 
 	trello.post('/1/lists/' + listId + '/cards', card_data, cb);
@@ -42,7 +42,7 @@ function postToTrello(listId, command, text, user_name, cb) {
 
 app.post('/*', function(req, res, next) {
   //var listId = req.params[0];
-  var listId = card_data.list_name;
+  var listId;
   var command = req.body.command,
   text = req.body.text,
   user_name = req.body.user_name;
