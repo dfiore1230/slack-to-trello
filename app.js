@@ -25,21 +25,14 @@ function postToTrello(listId, command, text, user_name, cb) {
 
   //throw new Error('List name is ' + card_data.list_name + 'something');
 
-	trello.post('/1/lists/' + listId + '/cards', card_data, cb);
-}
-
-// Set Fallback list_id
-var list_id = '5670696fa98d9db94c818c5a';
-
-function list_check(list_id) {
   if (card_data.list_name("blog")) {
-      var list_id = '5670696fa98d9db94c818c5a';
-      throw new Error('List_id is ' + list_id);
+      var listId = '5670696fa98d9db94c818c5a';
     }
   else if (card_data.list_name("done")) {
-      var list_id = '5670696d37e05b451fe05482';
-      throw new Error('List_id is ' + list_id);
+      var listId = '5670696d37e05b451fe05482';
     }
+
+	trello.post('/1/lists/' + listId + '/cards', card_data, cb);
 }
 
 app.post('/*', function(req, res, next) {
