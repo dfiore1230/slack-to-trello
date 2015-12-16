@@ -9,7 +9,7 @@ var port = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var card_data;
-var list_id;
+var list_name_id;
 
 function postToTrello(listId, command, text, user_name, cb) {
   if (text == undefined || text == null || text == "") {
@@ -26,15 +26,20 @@ function postToTrello(listId, command, text, user_name, cb) {
 
   //throw new Error('List name is ' + card_data.list_name + 'something');
 
+  list_id = {
+    'blog' : '5670696fa98d9db94c818c5a',
+    'done' : '5670696d37e05b451fe05482'
+  };
+
   if (card_data.list_name == undefined) {
     // If none set, default to blog
-    list_id = '5670696fa98d9db94c818c5a';
+    list_name_id = list_id.blog;
   }
   else if (card_data.list_name == "blog") {
-    list_id = '5670696fa98d9db94c818c5a';
+    list_name_id = list_id.blog;
   }
   else if (card_data.list_name == "done") {
-    list_id = '5670696d37e05b451fe05482';
+    list_name_id = list_id.done;
   }
 
 	trello.post('/1/lists/' + listId + '/cards', card_data, cb);
@@ -42,12 +47,12 @@ function postToTrello(listId, command, text, user_name, cb) {
 
 app.post('/*', function(req, res, next) {
   //var listId = req.params[0];
-  //var listId = list_id;
+  var listId = list_name_id;
   var command = req.body.command,
   text = req.body.text,
   user_name = req.body.user_name;
 
-  postToTrello(list_id, command, text, user_name, function(err, data) {
+  postToTrello(listId, command, text, user_name, function(err, data) {
     if (err) throw err;
     console.log(data);
 
