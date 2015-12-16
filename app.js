@@ -27,7 +27,7 @@ function postToTrello(listId, command, text, user_name, cb) {
 }
 
 // Set Fallback list_id
-var list_id = null;
+var list_id;
 
 function list_check(list_id) {
   if (list_name("blog")) {
