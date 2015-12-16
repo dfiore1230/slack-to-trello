@@ -37,14 +37,13 @@ function postToTrello(listId, command, text, user_name, cb) {
     listId = '5670696d37e05b451fe05482';
   }
 
-  throw new Error(listId 'is the list id');
+  throw new Error('ListId is ' + listId);
 
 	trello.post('/1/lists/' + listId + '/cards', card_data, cb);
 }
 
 app.post('/*', function(req, res, next) {
   var listId = req.params[0];
-  //var listId;
   var command = req.body.command,
   text = req.body.text,
   user_name = req.body.user_name;
