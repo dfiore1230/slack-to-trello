@@ -23,7 +23,7 @@ function postToTrello(listId, command, text, user_name, cb) {
     'list_name' : name_and_desc.shift()
 	};
 
-	trello.post('/1/lists/' + listId + '/cards', card_data, cb);
+	trello.post('/1/lists/' + listId + '/cards', card_data, card_data[2], cb);
 }
 
 // Set Fallback list_id
