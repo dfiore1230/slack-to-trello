@@ -23,10 +23,10 @@ function postToTrello(listId, command, text, user_name, cb) {
     'list_name' : name_and_desc.shift()
 	};
 
+  throw new Error('List name is ' + list_name);
+
 	trello.post('/1/lists/' + listId + '/cards', card_data, cb);
 }
-
-console.log( card_data[2], "Logged!");
 
 // Set Fallback list_id
 var list_id = '5670696fa98d9db94c818c5a';
