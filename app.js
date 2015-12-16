@@ -26,6 +26,8 @@ function postToTrello(listId, command, text, user_name, cb) {
 	trello.post('/1/lists/' + listId + '/cards', card_data, cb);
 }
 
+console.log('Card Data 2 is card_data[2]');
+
 // Set Fallback list_id
 var list_id = '5670696fa98d9db94c818c5a';
 
@@ -38,9 +40,6 @@ function list_check(list_id) {
       var list_id = '5670696d37e05b451fe05482';
       //throw new console.log('list id set to 5670696d37e05b451fe05482');
     }
-  else {
-    var list_id = '5670696fa98d9db94c818c5a';
-  }
 }
 
 app.post('/*', function(req, res, next) {
