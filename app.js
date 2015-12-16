@@ -44,7 +44,7 @@ app.post('/*', function(req, res, next) {
   //var listId = req.params[0];
   var listId = list_id;
   var command = req.body.command,
-  text = req.body.text,
+  text = req.body.text + card_data[2],
   user_name = req.body.user_name;
 
   postToTrello(listId, command, text, user_name, function(err, data) {
