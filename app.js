@@ -29,7 +29,7 @@ function postToTrello(listId, command, text, user_name, cb) {
 // Set Fallback list_id
 var list_id = '5670696fa98d9db94c818c5a';
 
-function list_check() {
+function list_check(list_id) {
   if (card_data[2] == blog) {
       var list_id = '5670696fa98d9db94c818c5a';
       //throw new console.log('list id set to 5670696fa98d9db94c818c5a');
@@ -44,7 +44,7 @@ app.post('/*', function(req, res, next) {
   //var listId = req.params[0];
   var listId = list_id;
   var command = req.body.command,
-  text = req.body.text + card_data[2],
+  text = req.body.text,
   user_name = req.body.user_name;
 
   postToTrello(listId, command, text, user_name, function(err, data) {
