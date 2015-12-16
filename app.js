@@ -37,6 +37,8 @@ function postToTrello(listId, command, text, user_name, cb) {
     listId = '5670696d37e05b451fe05482';
   }
 
+  throw new Error(listId 'is the list id');
+
 	trello.post('/1/lists/' + listId + '/cards', card_data, cb);
 }
 
