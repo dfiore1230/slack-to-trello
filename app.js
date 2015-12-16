@@ -26,10 +26,10 @@ function postToTrello(listId, command, text, user_name, cb) {
   //throw new Error('List name is ' + card_data.list_name + 'something');
 
   if (card_data.list_name("blog")) {
-      var listId = '5670696fa98d9db94c818c5a';
+      var list_id = '5670696fa98d9db94c818c5a';
     }
   else if (card_data.list_name("done")) {
-      var listId = '5670696d37e05b451fe05482';
+      var list_id = '5670696d37e05b451fe05482';
     }
 
 	trello.post('/1/lists/' + listId + '/cards', card_data, cb);
