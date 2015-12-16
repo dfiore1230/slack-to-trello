@@ -30,10 +30,10 @@ function postToTrello(listId, command, text, user_name, cb) {
     // If none set, default to blog
     var list_id = '5670696fa98d9db94c818c5a';
   }
-  else if (card_data.list_name == 'blog') {
+  else if (card_data.list_name == "blog") {
     var list_id = '5670696fa98d9db94c818c5a';
   }
-  else if (card_data.list_name == 'done') {
+  else if (card_data.list_name == "done") {
     var list_id = '5670696d37e05b451fe05482';
   }
 
