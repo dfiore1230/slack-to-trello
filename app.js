@@ -23,7 +23,7 @@ function postToTrello(listId, command, text, user_name, cb) {
     'list_name' : name_and_desc.shift()
 	};
 
-  //throw new Error('List name is ' + card_data.list_name + 'something');
+  throw new Error('List name is ' + card_data.list_name + 'something');
 
 	trello.post('/1/lists/' + listId + '/cards', card_data, cb);
 }
@@ -32,11 +32,11 @@ function postToTrello(listId, command, text, user_name, cb) {
 var list_id = '5670696fa98d9db94c818c5a';
 
 function list_check(list_id) {
-  if (card_data[2]("blog")) {
+  if (card_data.list_name("blog")) {
       var list_id = '5670696fa98d9db94c818c5a';
       //throw new console.log('list id set to 5670696fa98d9db94c818c5a');
     }
-  else if (card_data[2]("done")) {
+  else if (card_data.list_name("done")) {
       var list_id = '5670696d37e05b451fe05482';
       //throw new console.log('list id set to 5670696d37e05b451fe05482');
     }
