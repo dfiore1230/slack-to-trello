@@ -10,6 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 var card_data;
 var list_id;
+var listName;
 
 function postToTrello(listId, command, text, user_name, cb) {
   if (text == undefined || text == null || text == "") {
